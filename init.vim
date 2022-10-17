@@ -33,7 +33,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 
-" List ends here. Plugins become visible to Vim after this call.
+Plug 'nvim-lua/plenary.nvim'
+
+" search files (need to install "brew install ripgrep" for grep)
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+
+" List ends herei. Plugins become visible to Vim after this call.
 call plug#end()
 
 colorscheme gruvbox
@@ -44,14 +50,20 @@ let g:airline#extension#tabline#enable=1
 let g:airline#extension#tabline#left_sep=' '
 let g:airline#extension#tabline#left_alt_sep='|'
 let g:airline#extension#tabline#formatter='unique_tail'
-let NERDTreeQuitOnOpen=1
+let NERDTreeQuitOnOpen=0
 
 nnoremap <C-q> :q!<CR>
 nnoremap <F4> :bd<CR>
 nnoremap <F5> :NERDTreeToggle<CR>
 nnoremap <F6> :sp<CR>:terminal<CR>
+nnoremap <F7> :vsp<CR>
 
 " Tabs
 nnoremap <S-Tab> gT
 nnoremap <Tab> gt
 nnoremap <silent> <S-t> :tabnew<CR>
+
+" Telescope bindings
+nnoremap ,ff <cmd>Telescope find_files<cr>
+nnoremap ,fg <cmd>Telescope live_grep<cr>
+
